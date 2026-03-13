@@ -1,0 +1,469 @@
+/* ============================================================
+   DriveShare - Auth Page Styles
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6C63FF;
+    --primary-dark: #5A52D5;
+    --primary-light: #EEF0FF;
+    --accent: #FF6B6B;
+    --gold: #FFD166;
+    --dark: #0F0E17;
+    --dark-soft: #1A1929;
+    --surface: rgba(255, 255, 255, 0.06);
+    --text-hero: #FFFFFE;
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --radius: 16px;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--dark);
+}
+
+/* ===== SPLIT LAYOUT ===== */
+.auth-split {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    height: 100vh;
+}
+
+/* ===== HERO LEFT ===== */
+.auth-hero {
+    background: linear-gradient(135deg, #1A0533 0%, #0F0E17 40%, #0A2342 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem;
+}
+
+.auth-hero::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(108, 99, 255, 0.25) 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    border-radius: 50%;
+}
+
+.auth-hero::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
+    bottom: -80px;
+    right: -80px;
+    border-radius: 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-hero);
+}
+
+.brand-logo i {
+    font-size: 2rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px rgba(108, 99, 255, 0.5));
+}
+
+.hero-content h1 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-hero);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat strong {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.stat span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+/* ===== AUTH PANEL RIGHT ===== */
+.auth-panel {
+    background: #0F0E17;
+    border-left: 1px solid rgba(108, 99, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 2rem 1.5rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ===== TABS ===== */
+.auth-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.auth-tabs .nav-link {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border-radius: 9px;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.auth-tabs .nav-link.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+}
+
+/* ===== FORM STYLES ===== */
+.form-group-custom {
+    margin-bottom: 1rem;
+}
+
+.form-group-custom label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.form-group-custom label i {
+    margin-right: 4px;
+    color: var(--primary);
+}
+
+.custom-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1rem !important;
+    font-size: 0.92rem !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.custom-input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2) !important;
+    outline: none !important;
+    background: rgba(108, 99, 255, 0.08) !important;
+}
+
+.input-with-toggle {
+    position: relative;
+}
+
+.input-with-toggle .custom-input {
+    padding-right: 2.8rem !important;
+}
+
+.toggle-pass {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.toggle-pass:hover {
+    color: var(--primary);
+}
+
+/* ===== ROLE SELECTOR ===== */
+.role-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.role-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.role-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.role-card input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.role-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 1rem 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.role-card-inner i {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.35);
+    transition: color 0.2s;
+}
+
+.role-card-inner strong {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.role-card-inner small {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.role-card.selected .role-card-inner {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.12);
+}
+
+.role-card.selected .role-card-inner i {
+    color: var(--primary);
+}
+
+/* ===== AUTH BUTTON ===== */
+.btn-auth-primary {
+    background: linear-gradient(135deg, var(--primary), #9B5DE5);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-auth-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.45);
+    color: #fff;
+}
+
+.btn-auth-primary:active {
+    transform: translateY(0);
+}
+
+/* ===== ERROR ===== */
+.auth-error {
+    background: rgba(255, 107, 107, 0.12);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    color: #ff8f8f;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+/* ===== SWITCH LINK ===== */
+.auth-switch {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.auth-switch a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Alert overrides */
+.alert {
+    font-size: 0.88rem;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 1.2rem;
+}
+
+/* ===== FORGOT & RESET PASSWORD ===== */
+.back-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--primary);
+}
+
+.forgot-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.forgot-header h5 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.forgot-header p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.forgot-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 1.2rem;
+}
+
+.auth-success {
+    background: rgba(0, 245, 160, 0.12);
+    border: 1px solid rgba(0, 245, 160, 0.25);
+    color: #00f5a0;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.forgot-link {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgot-link:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+
+    .auth-split {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .auth-hero {
+        display: none;
+    }
+
+    .auth-panel {
+        min-height: 100vh;
+        padding: 2rem 1rem;
+    }
+}

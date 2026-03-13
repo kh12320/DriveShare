@@ -1,0 +1,16 @@
+{
+  "name": "driveshare",
+  "buildCommand": "composer install --no-dev --optimize-autoloader && php -r \"echo 'Build complete\\n';\"",
+  "startCommand": "php -S 0.0.0.0:$PORT -t /var/www/html",
+  "envVars": [
+    { "key": "SUPABASE_DB_HOST",    "generateValue": false },
+    { "key": "SUPABASE_DB_PORT",    "generateValue": false },
+    { "key": "SUPABASE_DB_NAME",    "generateValue": false },
+    { "key": "SUPABASE_DB_USER",    "generateValue": false },
+    { "key": "SUPABASE_DB_PASS",    "generateValue": false },
+    { "key": "SUPABASE_URL",        "generateValue": false },
+    { "key": "SUPABASE_ANON_KEY",   "generateValue": false },
+    { "key": "SUPABASE_SERVICE_KEY","generateValue": false },
+    { "key": "APP_URL",             "generateValue": false }
+  ]
+}
