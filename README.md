@@ -1,6 +1,8 @@
 # 🚗 DriveShare — Peer-to-Peer Car Rental System
 
-A full-stack peer-to-peer car rental platform built with **PHP 8.2+ (OOP)**, **PostgreSQL (Supabase)**, **HTML5**, **CSS3**, **Bootstrap 5**, and **Vanilla JavaScript** — deployable for **free** on Render + Supabase.
+**Live Demo:** [https://car-rental-bxil.onrender.com](https://car-rental-bxil.onrender.com)
+
+A full-stack peer-to-peer car rental platform built with **PHP 8.2+ (OOP)**, **PostgreSQL (Supabase)**, **HTML5**, **CSS3**, **Bootstrap 5**, and **Vanilla JavaScript** — perfectly containerized for rapid deployment on Render and Supabase.
 
 ---
 
@@ -28,7 +30,7 @@ khushboo project/
 ├── manage-car-photos.php        # Owner: manage car photos
 ├── schema.sql                   # PostgreSQL schema (run in Supabase)
 ├── composer.json
-├── render.yaml                  # Render.com deploy config
+├── Dockerfile                   # Docker configuration for Render
 ├── .env.example                 # Copy to .env for local dev
 │
 ├── config/
@@ -101,31 +103,22 @@ php -S localhost:8000
 
 ---
 
-### Step 3 — Deploy to Render (Free)
+### Step 3 — Deploy to Render (Docker)
 
-1. Push the project to **GitHub**
+1. Push your project to **GitHub**
 2. Go to [render.com](https://render.com) → **New Web Service**
-3. Connect your GitHub repo
+3. Connect your GitHub repository
 4. Settings:
-   - **Runtime:** `PHP` (or Docker if PHP not available — use a `Dockerfile`)
-   - **Build Command:** `composer install --no-dev`
-   - **Start Command:** `php -S 0.0.0.0:$PORT`
-   - **Root Directory:** *(leave blank or set to project root)*
-5. Add **Environment Variables** (from your Supabase dashboard):
+   - **Language:** `Docker`
+   - **Branch:** `main`
+   - **Instance Type:** `Free`
+5. Click **Add from .env** or manually add your three environment variables:
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_KEY`
+6. Click **Deploy Web Service**
 
-| Key | Value |
-|---|---|
-| `SUPABASE_DB_HOST` | `db.xxxx.supabase.co` |
-| `SUPABASE_DB_PORT` | `5432` |
-| `SUPABASE_DB_NAME` | `postgres` |
-| `SUPABASE_DB_USER` | `postgres` |
-| `SUPABASE_DB_PASS` | your db password |
-| `SUPABASE_URL` | `https://xxxx.supabase.co` |
-| `SUPABASE_ANON_KEY` | your anon key |
-| `SUPABASE_SERVICE_KEY` | your service role key |
-| `APP_URL` | your Render URL (e.g. `https://driveshare.onrender.com`) |
-
-6. Click **Deploy** — done! 🎉
+Render will automatically read the included `Dockerfile`, install PHP extensions via Composer, and execute the built-in server! 🎉
 
 ---
 
